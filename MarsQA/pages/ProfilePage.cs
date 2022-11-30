@@ -18,7 +18,7 @@ namespace MarsQA.pages
 
             IWebElement goToProfile = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/div[1]/div[2]/div/span/div"));
 
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
 
             goToProfile.Click();
 
@@ -32,6 +32,14 @@ namespace MarsQA.pages
 
             IWebElement dropDown = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[2]/div/span/select/option[2]"));
             dropDown.Click();
+
+            IWebElement hoursButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[3]/div/span/i"));
+            hoursButton.Click();
+
+            Thread.Sleep(1000);
+
+            IWebElement dropDown1 = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[3]/div/span/i"));
+            dropDown1.Click();
         }
     }
 }
