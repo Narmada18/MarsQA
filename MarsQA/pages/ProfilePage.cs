@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using MarsQA.utilities;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -12,49 +13,33 @@ namespace MarsQA.pages
     {
         public void ProfileEditPage(IWebDriver driver)
         {
-            Thread.Sleep(1000);
-            IWebElement hiNarmadaDropdown = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/div[1]/div[2]/div/span"));
-            hiNarmadaDropdown.Click();
+            Wait.WaitForElement(driver, "XPath","//span[@class='item ui dropdown link ']", 10);
 
-            IWebElement goToProfile = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/div[1]/div[2]/div/span/div"));
+            driver.FindElement(By.XPath("//span[@class='item ui dropdown link ']")).Click();
 
-            Thread.Sleep(1000);
+            Wait.WaitToBeVisible(driver, "XPath", "//a[@class='item' and text()='Go to Profile']", 10);
 
-            goToProfile.Click();
+            driver.FindElement(By.XPath("//a[@class='item' and text()='Go to Profile']")).Click();
 
+            Wait.WaitForElement(driver, "XPath", "//i[@class='right floated outline small write icon']", 10);
 
-            IWebElement editButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[2]/div/span/i"));
-            editButton.Click();
+            driver.FindElement(By.XPath("//i[@class='right floated outline small write icon']")).Click();
+                     
+            driver.FindElement(By.XPath("//select[@class='ui right labeled dropdown']")).Click();
 
-            IWebElement availabiltyType = driver.FindElement(By.Name("availabiltyType"));
-            availabiltyType.Click();
-            Thread.Sleep(500);
+            Wait.WaitForElement(driver, "XPath", "//option[@value='0']", 10);
 
-            IWebElement dropDown = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[2]/div/span/select/option[2]"));
-            dropDown.Click();
-
-            IWebElement hoursButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[3]/div/span/i"));
-            hoursButton.Click();
-
-            Thread.Sleep(1000);
-
-            IWebElement dropDown1 = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[3]/div/span/i"));
-            dropDown1.Click();
-
-            IWebElement dropDown2 = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[4]/div/span/i"));
-            dropDown2.Click();
-
-            IWebElement descriptionEdit = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/div/h3/span/i"));
-            descriptionEdit.Click();
-            Thread.Sleep(1000);
-
-            IWebElement descriptionBox = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/form/div/div/div[2]/div[1]/textarea "));
-            Thread.Sleep(500);
-            descriptionBox.SendKeys("I am Narmada.I am here to swap my knowledge and experiance");
-            IWebElement saveButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/form/div/div/div[2]/button"));
-            saveButton.Click();
-
+            driver.FindElement(By.XPath("//option[@value='0']")).Click();
            
+            driver.FindElement(By.XPath("(//*[@class='right floated outline small write icon'])[2]")).Click();
+
+            Wait.WaitForElement(driver, "XPath","//select[@name='availabiltyHour']", 10);
+
+            driver.FindElement(By.XPath("//select[@name='availabiltyHour']")).Click();
+            
+            driver.FindElement(By.XPath("//option[text()='Less than 30hours a week' and @value='0']")).Click();
+         
+                      
         }
     }
 }                                                                   
