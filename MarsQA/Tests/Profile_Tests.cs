@@ -22,7 +22,8 @@ languagePageObj.languagePage(driver);
 SkillPage skillPageObj = new SkillPage();
 skillPageObj.skillPage(driver);
 
+EducationPage educationPageObj = new EducationPage();
+educationPageObj.educationPage(driver);
 
-//CleanUp cleanUpObj = new CleanUp();
-//cleanUpObj.cleanUp(driver);
+
 

@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using MarsQA.utilities;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.Events;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -24,6 +25,10 @@ namespace MarsQA.pages
             driver.FindElement(By.XPath("//option[@value='Basic']")).Click();
 
             driver.FindElement(By.XPath("(//input[@value='Add'])[1]")).Click();
+
+            Wait.WaitToBeVisible(driver, "XPath", "//i[@class='remove icon']", 10);
+
+            driver.FindElement(By.XPath("//i[@class='remove icon']")).Click();
             
         }
        
